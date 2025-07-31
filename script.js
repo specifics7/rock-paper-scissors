@@ -1,3 +1,7 @@
+// Adds delay
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 // Computer will randomly decide on rock, paper, or scissors
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
@@ -42,10 +46,13 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 // Play a game of rock paper scissors (5 rounds)
-function playGame() {
+async function playGame() {
     let i = 0;
-
+    alert("Please open the browser console to play the game");
+    await sleep(5000);
     while (i < 5) {
+        console.log(`Round ${i + 1} starting. Get ready...`);
+        await sleep(2500);
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
